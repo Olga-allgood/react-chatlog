@@ -11,7 +11,14 @@ import ColorChoice from './components/ColorChoice';
 
 const App = () => {
   const [entries, setEntries] = useState(chatData);
-  const [color, setColor] = useState("blue")
+  const [color, setColor] = useState(
+    {local:"blue",
+      remote:"yellow"
+    });
+  const updateChatColor = (type, color) => {
+        setColor((previous) =>({...previous,[type]:color}))
+
+    }
 
   const toggleLike = (id) => {
     const updateEntries = entries.map((entry) => {
@@ -29,8 +36,9 @@ const App = () => {
       <header>
         <h1>Application title</h1>
         <div className="colorsOption"> 
-          <ColorChoice setColorCallback={setColor}/>
-          <ColorChoice setColorCallback={setColor}/>
+          <ColorChoice setColorCallback={updateChatColor} type="local" />
+          <ColorChoice setColorCallback={updateChatColor} type="remote"/>
+          {/* <ColorChoice setColorCallback={setColor}/> */}
         </div>
 
         <p>{totalLikes} ❤️s</p> 

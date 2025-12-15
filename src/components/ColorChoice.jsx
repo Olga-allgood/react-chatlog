@@ -1,11 +1,12 @@
-const ColorChoice = ({setColorCallback}) => {
+const ColorChoice = ({setColorCallback, type}) => {
+   
     return(
     <div>
-    <button onClick={()=> setColorCallback('purple')}>🟣</button>
-    <button onClick={()=> setColorCallback('green')}>🟢</button>
-    <button onClick={()=> setColorCallback('blue')}>🔵</button>
-    <button onClick={()=> setColorCallback('yellow')}>🟡</button>
-    <button onClick={()=> setColorCallback('red')}>🔴</button>
+    <button onClick={()=> setColorCallback(type, 'purple')}>🟣</button>
+    <button onClick={()=> setColorCallback(type, 'green')}>🟢</button>
+    <button onClick={()=> setColorCallback(type, 'blue')}>🔵</button>
+    <button onClick={()=> setColorCallback(type, 'yellow')}>🟡</button>
+    <button onClick={()=> setColorCallback(type, 'red')}>🔴</button>
     
     </div>
 

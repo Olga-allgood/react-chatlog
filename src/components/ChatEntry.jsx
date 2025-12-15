@@ -8,7 +8,7 @@ const ChatEntry = ({id, sender, body, timeStamp, onLike, liked, color}) => {
     <li key={id} className={`chat-entry ${sender === "Vladimir" ? "local" : "remote"}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p className={color}>{body}</p>
+        <p className={sender === "Vladimir" ? color.local: color.remote}>{body}</p>
         <p className="entry-time"><TimeStamp timeStamp={timeStamp}></TimeStamp></p>
         <button className="like" onClick={() => onLike(id)}>{liked ? '❤️' : '🤍'}</button>
       </section>
