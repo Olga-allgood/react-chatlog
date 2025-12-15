@@ -3,12 +3,16 @@ import chatData from './data/messages.json';
 import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import { useState } from 'react';
+import ColorChoice from './components/ColorChoice';
+
 
 
 
 
 const App = () => {
   const [entries, setEntries] = useState(chatData);
+  const [color, setColor] = useState("blue")
+
   const toggleLike = (id) => {
     const updateEntries = entries.map((entry) => {
       if (entry.id == id) {
@@ -24,6 +28,11 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Application title</h1>
+        <div className="colorsOption"> 
+          <ColorChoice setColorCallback={setColor}/>
+          <ColorChoice setColorCallback={setColor}/>
+        </div>
+
         <p>{totalLikes} ❤️s</p> 
       </header>
       <main>
@@ -33,7 +42,7 @@ const App = () => {
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
         <ul>
-          <ChatLog entries={entries} onLike={toggleLike} ></ChatLog>
+          <ChatLog entries={entries} onLike={toggleLike} color={color}></ChatLog>
         </ul>
       </main>
     </div>

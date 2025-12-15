@@ -72,3 +72,10 @@
 .purple {
   color: purple
 }
+
+.colorsOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
