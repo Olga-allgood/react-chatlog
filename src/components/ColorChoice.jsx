@@ -1,7 +1,8 @@
-const ColorChoice = ({setColorCallback, type}) => {
-   
+
+const ColorChoice = ({setColorCallback, type, color, users}) => {
     return(
     <div>
+     <p className={color[type]}>{type === "local" ? users[0]: users[1]}'s chat</p>   
     <button onClick={()=> setColorCallback(type, 'purple')}>🟣</button>
     <button onClick={()=> setColorCallback(type, 'green')}>🟢</button>
     <button onClick={()=> setColorCallback(type, 'blue')}>🔵</button>

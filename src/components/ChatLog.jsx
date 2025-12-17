@@ -2,7 +2,7 @@ import ChatEntry from './ChatEntry';
 
 
 
-const ChatLog = ({entries, onLike, color}) => {
+const ChatLog = ({entries, onLike, color, users}) => {
     const chatEntries = entries.map(entry => (
         <ChatEntry 
         id={entry.id}
@@ -11,7 +11,8 @@ const ChatLog = ({entries, onLike, color}) => {
         timeStamp={entry.timeStamp}
         liked={entry.liked}
         onLike={onLike}
-        color={color} />));
+        color={color} 
+        users={users}/>));
                 
     return (
     <div className="chat-log">

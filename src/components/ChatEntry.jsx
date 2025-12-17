@@ -2,13 +2,13 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
-const ChatEntry = ({id, sender, body, timeStamp, onLike, liked, color}) => {
+const ChatEntry = ({id, sender, body, timeStamp, onLike, liked, color, users}) => {
   return (
     // Replace the outer tag name with a semantic element that fits our use case
-    <li key={id} className={`chat-entry ${sender === "Vladimir" ? "local" : "remote"}`}>
+    <li key={id} className={`chat-entry ${sender === users[0] ? "local" : "remote"}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p className={sender === "Vladimir" ? color.local: color.remote}>{body}</p>
+        <p className={sender === users[0] ? color.local: color.remote}>{body}</p>
         <p className="entry-time"><TimeStamp timeStamp={timeStamp}></TimeStamp></p>
         <button className="like" onClick={() => onLike(id)}>{liked ? '❤️' : '🤍'}</button>
       </section>

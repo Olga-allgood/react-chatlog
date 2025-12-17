@@ -41,13 +41,16 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Between <span className ={color.local}>{users[0]}</span> and <span className ={color.remote}>{users[1]}</span></h1>
-        <div className="colorsOption"> 
-          <ColorChoice setColorCallback={updateChatColor} type="local" />
-          <ColorChoice setColorCallback={updateChatColor} type="remote"/>
-          {/* <ColorChoice setColorCallback={setColor}/> */}
-        </div>
-
-        <p>{totalLikes} ❤️s</p> 
+        <section>
+          <div className="colorsOption"> 
+            <ColorChoice setColorCallback={updateChatColor} type="local" users={users} color={color}/>
+              <h2 className='widget'>{totalLikes} ❤️s</h2> 
+            <ColorChoice setColorCallback={updateChatColor} type="remote" users={users} color={color}/>
+            {/* <ColorChoice setColorCallback={setColor}/> */}
+          </div>
+        
+        
+        </section>
       </header>
       <main>
         {/* <ChatEntry sender={chatData[0].sender} body={chatData[0].body} timeStamp={chatData[0].timeStamp}>
@@ -56,7 +59,7 @@ const App = () => {
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
         <ul>
-          <ChatLog entries={entries} onLike={toggleLike} color={color}></ChatLog>
+          <ChatLog entries={entries} onLike={toggleLike} color={color} users={users}></ChatLog>
         </ul>
       </main>
     </div>
